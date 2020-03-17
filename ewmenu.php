@@ -17,11 +17,6 @@ echo $topMenu->toScript();
 
 // Sidebar menu
 $sideMenu = new Menu("menu", TRUE, FALSE);
-$sideMenu->addMenuItem(17, "mi_perfiles", $MenuLanguage->MenuPhrase("17", "MenuText"), $MenuRelativePath . "perfileslist.php", -1, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}perfiles'), FALSE, FALSE, "", "", FALSE);
-$sideMenu->addMenuItem(18, "mi_perfiles_permisos", $MenuLanguage->MenuPhrase("18", "MenuText"), $MenuRelativePath . "perfiles_permisoslist.php", -1, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}perfiles_permisos'), FALSE, FALSE, "", "", FALSE);
-$sideMenu->addMenuItem(19, "mi_generar_condominio", $MenuLanguage->MenuPhrase("19", "MenuText"), $MenuRelativePath . "generar_condominio.php", -1, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}generar_condominio.php'), FALSE, FALSE, "", "", FALSE);
-$sideMenu->addMenuItem(20, "mi_recibo_detalle", $MenuLanguage->MenuPhrase("20", "MenuText"), $MenuRelativePath . "recibo_detallelist.php", -1, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}recibo_detalle'), FALSE, FALSE, "", "", FALSE);
-$sideMenu->addMenuItem(21, "mi_ver_recibo", $MenuLanguage->MenuPhrase("21", "MenuText"), $MenuRelativePath . "ver_recibo.php", -1, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}ver_recibo.php'), FALSE, FALSE, "", "", FALSE);
 $sideMenu->addMenuItem(16, "mci_Configuracion", $MenuLanguage->MenuPhrase("16", "MenuText"), "", -1, "", TRUE, FALSE, TRUE, "fas fa-cogs", "", FALSE);
 $sideMenu->addMenuItem(13, "mi_residencias", $MenuLanguage->MenuPhrase("13", "MenuText"), $MenuRelativePath . "residenciaslist.php", 16, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}residencias'), FALSE, FALSE, "fas fa-hotel", "", FALSE);
 $sideMenu->addMenuItem(3, "mi_edificios", $MenuLanguage->MenuPhrase("3", "MenuText"), $MenuRelativePath . "edificioslist.php?cmd=resetall", 16, "", IsLoggedIn() || AllowListMenu('{ADBDD478-1F96-44BD-9F21-FE9B46199DE2}edificios'), FALSE, FALSE, "fas fa-building", "", FALSE);

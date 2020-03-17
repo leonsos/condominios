@@ -74,12 +74,10 @@ foreach ($aptos as $apto)
 				$montoindv = $gastosin['monto'];
 				
 			}
-			echo $fin=$alicuota*$montoindv; 
-			echo $sql3="UPDATE recibos SET monto_pagar='$fin',monto_ind='$montoindv' WHERE apartamento_id=$aptoid";
-			$dbhelper->execute($sql3);
+			//echo $fin=$alicuota*$montoindv; 
+			$sql="UPDATE recibos SET monto_pagar='$fin',monto_ind='$montoindv' WHERE apartamento_id=$aptoid";
 			$numrecibo++;
-			$sql4="UPDATE residencias SET consecutivo_recibo='$numrecibo'";
-			$dbhelper->execute($sql4);
+			$sql="UPDATE residencias SET consecutivo_recibo='$numrecibo'";
 			//echo $montoindv;
 			//echo $sql="INSERT INTO recibos (monto_ind) values ('".$montoindv."')";
 			

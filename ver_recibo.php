@@ -28,7 +28,6 @@ SetClientVar("login", LoginStatus());
 Page_Rendering();
 ?>
 <?php include_once "header.php"; ?>
-<!--CUSTOM_FILE_CONTENT_BEGIN-->
 <?php
 $id_condo_mensual= $_GET["fk_id_condo_mensual"];
 $dbhelper = &DbHelper();
@@ -76,7 +75,6 @@ $recibos = $dbhelper->ExecuteRows("SELECT * FROM recibos WHERE condo_mensual_id=
 		</table>
 	
 
-<!--CUSTOM_FILE_CONTENT_END-->
 <?php if (Config("DEBUG")) echo GetDebugMessage(); ?>
 <?php include_once "footer.php"; ?>
 <?php
