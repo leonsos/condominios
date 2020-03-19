@@ -32,7 +32,10 @@ Page_Rendering();
 $id_condo_mensual= $_GET["fk_id_condo_mensual"];
 $dbhelper = &DbHelper();
 
-$recibos = $dbhelper->ExecuteRows("SELECT * FROM recibos WHERE condo_mensual_id=$id_condo_mensual" );
+$recibos = $dbhelper->ExecuteRows("SELECT recibos.id_recibo,recibos.condo_mensual_id,recibos.apartamento_id,recibos.n_recibo,recibos.monto_pagar,recibos.monto_ind,recibos.monto_alicuota FROM recibos 
+INNER JOIN apartamentos ON apartamentos.id_apartamento=recibos.apartamento_id
+INNER JOIN propietarios ON apartamentos.propietario_id=propietarios.id_propietario
+WHERE condo_mensual_id=$id_condo_mensual" );
 
 
 	
@@ -82,7 +85,11 @@ $recibos = $dbhelper->ExecuteRows("SELECT * FROM recibos WHERE condo_mensual_id=
 									<th scope="col">total</th>
 								</tr>
 								<?php 
-								$sql="SELECT * FROM recibo_detalle WHERE recibo_id=$id";
+								$sql="SELECT recibo_detalle.id_recibo_detalle,gastos.monto,tipo_gastos.nombre,recibo_detalle.recibo_id,recibo_detalle.gastos_id,recibo_detalle.cantidad,recibo_detalle.precio,recibo_detalle.total
+								FROM recibo_detalle
+								INNER JOIN gastos ON recibo_detalle.gastos_id=gastos.id_gasto
+								INNER JOIN tipo_gastos ON gastos.tipo_gasto_id=tipo_gastos.id_tipo_gasto
+								WHERE recibo_id=$id";
 								$recibos_det = $dbhelper->ExecuteRows($sql);
 
 								foreach($recibos_det as $rdet) {
@@ -96,6 +103,7 @@ $recibos = $dbhelper->ExecuteRows("SELECT * FROM recibos WHERE condo_mensual_id=
 									
 																?>
 								<tr>								
+									<th scope="row"><?php echo $id?></th>
 									<td><?php echo $id_rd?></td>
 									<td><?php echo $recibo_rd?></td>
 									<td><?php echo $gastos_rd?></td>
